@@ -1,0 +1,75 @@
+﻿@using DDD.Web.Models.Game
+
+@model IEnumerable<GameListViewModel>
+
+<h3 class="text-center" style="margin-top: 50px"> Game List </h3>
+
+<div class="form-group">
+    <a class="btn btn-primary" asp-action="Create">Create new Game</a>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.css" />
+
+@(Html.Kendo().Grid<GameListViewModel>()    
+      .Name("Grid")
+      .Columns(columns => {
+              columns.Bound(p => p.Name).Title("Nome");
+      })
+      .Pageable()
+      .Sortable()
+      .Scrollable()
+      .Filterable()
+      .HtmlAttributes(new { style = "height:430px;" })
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .PageSize(20)
+          .Read(read => read.Action("TelerikGrid", "Game"))
+      )
+      )
+
+@section Scripts
+{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+        function Deletar(id) {
+            swal({
+                    title: "Você tem certeza?",
+                    text: "Uma vez deletado, não há como recuperar!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((confirmardeletar) => {
+                    if (confirmardeletar) {
+                        var Id = $("#Delete").attr("Id");
+                        $.ajax({
+                            type: "Delete",
+                            url: `@Url.Action("Delete")/${id}`,
+                            data: { id: Id },
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function(response) {
+                                swal("Seu game foi deletado!",
+                                    {
+                                        icon: "success"
+                                    }).then(function() {
+                                    window.location.href = "/Game/Index";
+                                });
+
+                            },
+                            failure: function(response) {
+                                alert(response.responseText);
+                            },
+                            error: function(response) {
+                                alert(response.responseText);
+                            }
+                        });
+
+                    } else {
+                        swal("Ação cancelada!");
+                    }
+                });
+        }
+    </script>
+}

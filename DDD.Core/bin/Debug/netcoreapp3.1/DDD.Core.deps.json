@@ -1,0 +1,69 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "DDD.Core/1.0.0": {
+        "dependencies": {
+          "Codout.Framework.DAL": "2.0.0",
+          "Codout.Framework.Domain": "2.0.0"
+        },
+        "runtime": {
+          "DDD.Core.dll": {}
+        }
+      },
+      "Codout.Framework.DAL/2.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/Codout.Framework.DAL.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Codout.Framework.Domain/2.0.0": {
+        "dependencies": {
+          "Codout.Framework.DAL": "2.0.0",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Codout.Framework.Domain.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "System.ComponentModel.Annotations/4.5.0": {}
+    }
+  },
+  "libraries": {
+    "DDD.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Codout.Framework.DAL/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M/8uB6LgxCqbXV0sn6xl9DlDWC6Se/lATlMzvg8LJtqEmdh7bUk+jds2Raj+nP304rz0uNTFIkIOSQxNra5xDQ==",
+      "path": "codout.framework.dal/2.0.0",
+      "hashPath": "codout.framework.dal.2.0.0.nupkg.sha512"
+    },
+    "Codout.Framework.Domain/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hGFWH5PH6gwzzdsmt86uh93hgx4fI2VKi/nvvouzm6AqvpDobk4tj1Y/EW0/xcwTXL4k+Y03v6nHw5ifUYjp3A==",
+      "path": "codout.framework.domain/2.0.0",
+      "hashPath": "codout.framework.domain.2.0.0.nupkg.sha512"
+    },
+    "System.ComponentModel.Annotations/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
+      "path": "system.componentmodel.annotations/4.5.0",
+      "hashPath": "system.componentmodel.annotations.4.5.0.nupkg.sha512"
+    }
+  }
+}
